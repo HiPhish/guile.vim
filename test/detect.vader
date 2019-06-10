@@ -1,0 +1,15 @@
+Given (Detect by shebang):
+  #!/usr/local/bin/guile -s
+  !#
+Execute:
+  Assert guile#detect()
+
+Given (Detect by define-module):
+  (define-module (foo bar))
+Execute:
+  Assert guile#detect()
+
+Given (Detect by use-modules):
+  (use-modules (foo bar))
+Execute:
+  Assert guile#detect()
