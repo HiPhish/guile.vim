@@ -21,4 +21,6 @@
 "    USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
 
-autocmd! BufRead,BufNewFile *.scm if guile#detect() | let &ft.='.guile' | endif
+augroup filetypedetect
+	autocmd BufRead,BufNewFile *scm if guile#detect() | let &ft.='.guile' | endif
+augroup end
