@@ -1,3 +1,4 @@
+# Test whether Guile is being detected
 Given (Detect by shebang):
   #!/usr/local/bin/guile -s
   !#
@@ -13,3 +14,12 @@ Given (Detect by use-modules):
   (use-modules (foo bar))
 Execute:
   Assert guile#detect()
+
+
+-----------------------------------------------------------------------------
+# Test whether the file type is adjusted when a Guile file is edited
+Execute (File type adjustment):
+  edit test/nonsense.scm
+Then:
+  AssertEqual 'scheme.guile', &ft
+  bwipeout!
