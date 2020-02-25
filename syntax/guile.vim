@@ -71,6 +71,9 @@ syntax keyword guileSyntax with-input-from-string
 syntax keyword guileSyntax with-output-to-port
 syntax keyword guileSyntax with-output-to-string
 
+" Macros
+syntax keyword guileSyntaxSyntax define-syntax-rule
+
 
 " ===[ Literals ]==============================================================
 " Boolean literals
@@ -93,10 +96,11 @@ syntax match guileNumber '\v<(\+|-)(inf|nan)\.0>'  " NaN and infinity
 
 
 " =============================================================================
-highlight link guileComment  schemeComment
-highlight link guileQuote    schemeQuote
-highlight link guileSyntax   schemeSyntax
-highlight link guileBoolean  schemeBoolean
-highlight link guileConstant schemeConstant
-highlight link guileNumber   schemeNumber
-highlight link guileKeyword  Type
+highlight link guileComment        schemeComment
+highlight link guileQuote          schemeQuote
+highlight link guileSyntax         schemeSyntax
+highlight link guileSyntaxSyntax   schemeSyntaxSyntax
+highlight link guileBoolean        schemeBoolean
+highlight link guileConstant       schemeConstant
+highlight link guileNumber         schemeNumber
+highlight link guileKeyword        Type

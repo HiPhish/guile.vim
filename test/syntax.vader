@@ -107,3 +107,13 @@ Execute:
       AssertEqual 'guileNumber', SyntaxAt(1, offset * 7 + i)
     endfor
   endfor
+
+-----------------------------------------------------------------------------
+Given scheme.guile (Syntax-rule macro):
+  (define-syntax-rule (first-of expr expr* ...)
+    expr)
+
+Execute:
+  for i in range(2, 19)
+    AssertEqual 'guileSyntaxSyntax', SyntaxAt(1, i)
+  endfor
