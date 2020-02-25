@@ -7,6 +7,7 @@ Given scheme.guile (Multi-line comment):
   !#
   #! This is a
   multi-line comment !#
+
 Execute:
   for i in range(1, 25)
     AssertEqual 'guileComment', SyntaxAt(1, i)
@@ -24,6 +25,7 @@ Execute:
 Given scheme.guile (keywords):
   #:keyword
   #:key-word
+
 Execute:
   for i in range(1,  9)
     AssertEqual 'guileKeyword', SyntaxAt(1, i)
@@ -36,6 +38,7 @@ Execute:
 Given scheme.guile (Boolean literals):
   #true
   #false
+
 Execute:
   for i in range(1, 5)
     AssertEqual 'guileBoolean', SyntaxAt(1, i)
@@ -47,6 +50,7 @@ Execute:
 -----------------------------------------------------------------------------
 Given scheme.guile (Unspecified object representation):
   #<unspecified>
+
 Execute:
   for i in range(1, 14)
     AssertEqual 'guileConstant', SyntaxAt(1, i)
@@ -55,6 +59,7 @@ Execute:
 -----------------------------------------------------------------------------
 Given scheme.guile (Bytevector literal):
   #vu8(1 2 3 4)
+
 Execute:
   for i in range(1, 4)
     AssertEqual 'guileQuote', SyntaxAt(1, i)
@@ -67,6 +72,7 @@ Given scheme.guile (Integer number literals):
   #d0239 #d+0239 #d-0239 #D0239 #D+0239 #D-0239
   #x03AF #x+03AF #x-03AF #X03AF #X+03AF #X-03AF
   #x03af #x+03af #x-03af #X03af #X+03af #X-03af
+
 Execute:
   for i in range(1, 5)
     for j in range(1, 6)
@@ -81,6 +87,7 @@ Given scheme.guile (Exact decimal number literls):
   #e012345 #e+01234 #e-01234 #E012345 #E+01234 #E-01234
   #e.12345 #e+.1234 #e-.1234 #E.12345 #E+.1234 #E-.1234
   #e0.1234 #e+0.123 #e-0.123 #E0.1234 #E+0.123 #E-0.123
+
 Execute:
   for line in [1, 2]
     for offset in range(0, 5)
@@ -93,6 +100,7 @@ Execute:
 -----------------------------------------------------------------------------
 Given scheme.guile (Infinity and NaN literals):
   +inf.0 -inf.0 +nan.0 -nan.0
+
 Execute:
   for offset in range(0, 3)
     for i in range(1, 6)
