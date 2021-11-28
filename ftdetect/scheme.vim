@@ -21,6 +21,16 @@
 "    USE OR OTHER DEALINGS IN THE SOFTWARE.
 " }}}
 
+" Safely adjust to file type to not include `guile` more than once
+function! s:adjust_ft()
+	for l:ft in split(&filetype, '\v\.')
+		if l:ft == 'guile'
+			return
+		endif
+	endfor
+	let &ft.='.guile'
+endfunction
+
 augroup filetypedetect
-	autocmd BufRead,BufNewFile *scm if guile#detect() | let &ft.='.guile' | endif
+	autocmd BufRead,BufNewFile *scm if guile#detect() | call s:adjust_ft() | endif
 augroup end
